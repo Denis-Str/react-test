@@ -21,6 +21,11 @@ class InputComp extends React.Component {
     console.log('click');
   }
 
+  // типа вотчер
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
+
   render() {
     return (
       <div className='input-component'>
