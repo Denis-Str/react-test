@@ -1,28 +1,35 @@
 import React from "react";
 
-// class User extends React.Component {
-//   // constructor(props) {
-//   //   super(props);
-//   //   this.state = {
-//   //     user: {}
-//   //   };
-//   // }
-//
-//   render() {
-//     return (
-//       // <li>23423423</li>
-//       <li>{this.props.value}</li>
-//     )
-//   }
-// }
-//
-// export default User;
+class User extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: props.user
+    };
+  }
 
-
-const User = (props) => {
-  // const user = props.user
-  // return  <li key={user.id.toString()}>{props}</li>;
-  return  <li>{props.user.id}</li>;
+  render() {
+    const { firstName, bio } = this.state.user
+    return (
+      <li>
+        <h4>{firstName}</h4>
+        <div>{bio}</div>
+      </li>
+    )
+  }
 }
 
 export default User;
+
+
+// const User = (props) => {
+//   const { firstName, bio } = props.user
+//   return (
+//     <li>
+//       <h4>{firstName}</h4>
+//       <div>{bio}</div>
+//     </li>
+//   )
+// }
+//
+// export default User;
