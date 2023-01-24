@@ -1,34 +1,18 @@
 import React from "react";
+import users from "../mock/users";
 import User from "./User";
 
 class Users extends React.Component {
-  users = [
-    {
-      id: 1,
-      firstName: 'Bob',
-      lastName: 'Marly',
-      bio: 'Random text',
-      age: 40,
-      isHappy: true
-    },
-    {
-      id: 2,
-      firstName: 'Terminator',
-      lastName: 'T 1000',
-      bio: 'Random text',
-      age: 22,
-      isHappy: false
-    }
-  ]
-
-  UsersList = this.users.map(user => <User key={user.id} user={user} />)
+  UsersList = users.map(user => <User key={user.id} user={user} />);
 
     render() {
-      return (
-        <ul>{ this.UsersList }</ul>
-      )
+    const { length } = this.UsersList;
+    if (length > 0) {
+      return  <ul>{ this.UsersList }</ul>;
+    } else {
+      return <div>is Empty</div>
+    }
   }
-
 }
 
 export default Users;
