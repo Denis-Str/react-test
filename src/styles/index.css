@@ -10,6 +10,7 @@ body {
   background-color: #000;
   color: #fff;
   padding-left: 16px;
+  margin-bottom: 16px;
 }
 
 ul {
@@ -20,4 +21,55 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+main {
+  display: flex;
+}
+
+.users-component {
+  flex-basis: 75%;
+  margin-right: 32px;
+}
+
+.user-component {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: yellow;
+  margin-bottom: 16px;
+}
+
+.user-component:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.edit {
+  margin-right: 10px;
+}
+
+.form-component {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+}
+
+input,
+textarea {
+}
+
+textarea {
+  margin-bottom: 16px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+input:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+button {
 }

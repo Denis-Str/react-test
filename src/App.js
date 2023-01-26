@@ -6,6 +6,7 @@ import './styles/index.css';
 // import Clock from "./components/archive/Clock";
 // import Button from "./components/archive/Button";
 import Users from "./components/Users";
+import Form from "./components/Form";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       </header>
       <main>
         <Users />
+        <Form />
       </main>
       {/*<Welcome name='Alica' />*/}
       {/*<Input />*/}
