@@ -12,7 +12,7 @@ class User extends React.Component {
 
   render() {
     // const { firstName, bio } = this.props.user
-    const { firstName, bio, isHappy, age } = this.state.user
+    const { id, firstName, bio, isHappy, age } = this.state.user
     return (
       <li className='user-component'>
         <div>
@@ -22,7 +22,7 @@ class User extends React.Component {
         </div>
         <div>
           <IoHammerSharp className='edit' />
-          <IoCloseCircleSharp />
+          <IoCloseCircleSharp onClick={() => this.props.delUser(id)} />
         </div>
       </li>
     )

@@ -20,10 +20,16 @@ class App extends React.Component {
     };
 
     this.addUser = this.addUser.bind(this);
+    this.delUser = this.delUser.bind(this);
   }
   addUser(user) {
     const id = this.state.users.length + 1;
     this.setState({users: [...this.state.users, {id, ...user}]})
+  };
+
+  delUser(userID) {
+    const filteredUsers = this.state.users.filter(({id}) => id !== userID);
+    this.setState({users: filteredUsers})
   };
 
   render() {
@@ -34,7 +40,7 @@ class App extends React.Component {
         </header>
         <main>
           <div className='top'>
-            <Users users={this.state.users}/>
+            <Users users={this.state.users} delUser={this.delUser}/>
             <Form addUser={this.addUser}/>
           </div>
           <div>
