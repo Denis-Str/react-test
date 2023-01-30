@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "../../Form";
 import { IoCloseCircleSharp, IoHammerSharp } from 'react-icons/io5';
 
 class User extends React.Component {
@@ -6,7 +7,8 @@ class User extends React.Component {
     super(props);
     this.state = {
       // надо ли пропсы записывать в состояние?! вот в чем вопрос
-      user: props.user
+      user: props.user,
+      showEditForm: false,
     };
   }
 
@@ -21,9 +23,10 @@ class User extends React.Component {
           <div>{isHappy ? ':)' : ':('}</div>
         </div>
         <div>
-          <IoHammerSharp className='edit' />
+          <IoHammerSharp onClick={() => this.setState({showEditForm: !this.state.showEditForm})} className='edit' />
           <IoCloseCircleSharp onClick={() => this.props.delUser(id)} />
         </div>
+        {this.state.showEditForm && <Form />}
       </li>
     )
   }
