@@ -1,3 +1,4 @@
+import React from "react";
 import './styles/index.css';
 
 // import Welcome from "./components/archive/Welcome";
@@ -9,29 +10,46 @@ import Users from "./components/Users";
 import Form from "./components/Form";
 import Calculator from "./components/Calculator";
 
-const App = () => {
-  return (
-    <div className='app-component'>
-      <header>
-        <h1 className='title'>Список пользователей</h1>
-      </header>
-      <main>
-        <div className='top'>
-          <Users />
-          <Form />
-        </div>
-        <div>
-          <h4>Всплытие</h4>
-          <Calculator />
-        </div>
-      </main>
-      {/*<Welcome name='Alica' />*/}
-      {/*<Input />*/}
-      {/*<Toggle />*/}
-      {/*<Clock />*/}
-      {/*<Button text='button' />*/}
-    </div>
-  );
+import users from "./mock/users";
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users
+    };
+
+    this.addUser = this.addUser.bind(this);
+  }
+  addUser(user) {
+    const id = this.state.users.length + 1;
+    this.setState({users: [...this.state.users, {id, ...user}]})
+  };
+
+  render() {
+    return (
+      <div className='app-component'>
+        <header>
+          <h1 className='title'>Список пользователей</h1>
+        </header>
+        <main>
+          <div className='top'>
+            <Users users={this.state.users}/>
+            <Form addUser={this.addUser}/>
+          </div>
+          <div>
+            <h4>Всплытие</h4>
+            <Calculator/>
+          </div>
+        </main>
+        {/*<Welcome name='Alica' />*/}
+        {/*<Input />*/}
+        {/*<Toggle />*/}
+        {/*<Clock />*/}
+        {/*<Button text='button' />*/}
+      </div>
+    )
+  };
 }
 
 export default App;

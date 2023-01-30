@@ -12,12 +12,13 @@ class User extends React.Component {
 
   render() {
     // const { firstName, bio } = this.props.user
-    const { firstName, bio } = this.state.user
+    const { firstName, bio, isHappy, age } = this.state.user
     return (
       <li className='user-component'>
         <div>
-          <h4>{firstName}</h4>
+          <h4>{firstName} - {age} лет</h4>
           <div>{bio}</div>
+          <div>{isHappy ? ':)' : ':('}</div>
         </div>
         <div>
           <IoHammerSharp className='edit' />
