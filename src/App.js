@@ -7,6 +7,7 @@ import './styles/index.css';
 // import Button from "./components/archive/Button";
 import Users from "./components/Users";
 import Form from "./components/Form";
+import Calculator from "./components/Calculator";
 
 const App = () => {
   return (
@@ -15,8 +16,14 @@ const App = () => {
         <h1 className='title'>Список пользователей</h1>
       </header>
       <main>
-        <Users />
-        <Form />
+        <div className='top'>
+          <Users />
+          <Form />
+        </div>
+        <div>
+          <h4>Всплытие</h4>
+          <Calculator />
+        </div>
       </main>
       {/*<Welcome name='Alica' />*/}
       {/*<Input />*/}
