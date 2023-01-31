@@ -1,11 +1,10 @@
 import React from "react";
 
 const initState = {
-  firstName: '',
-  lastName: '',
-  bio: '',
-  age: null,
-  isHappy: false
+  first_name: '',
+  last_name: '',
+  email: '',
+  // isHappy: false
 }
 
 class Form extends React.Component {
@@ -29,14 +28,13 @@ class Form extends React.Component {
   render() {
     return(
       <form ref={el => this.form = el} className='form-component'>
-        <input placeholder='Имя' onChange={e => this.setState(prevState => ({user: {...prevState.user, firstName: e.target.value}}))}/>
-        <input placeholder='Фамилия' onChange={e => this.setState(prevState => ({user: {...prevState.user, lastName: e.target.value}}))}/>
-        <textarea placeholder='Биография' onChange={e => this.setState(prevState => ({user: {...prevState.user, bio: e.target.value}}))}/>
-        <input placeholder='Возраст' onChange={e => this.setState(prevState => ({user: {...prevState.user, age: e.target.value}}))}/>
-        <div className='field'>
-          <label htmlFor='isHappy'>Состояние</label>
-          <input type='checkbox' id='isHappy' onChange={e => this.setState(prevState => ({user: {...prevState.user, isHappy: e.target.checked}}))}/>
-        </div>
+        <input placeholder='Имя' onChange={e => this.setState(prevState => ({user: {...prevState.user, first_name: e.target.value}}))}/>
+        <input placeholder='Фамилия' onChange={e => this.setState(prevState => ({user: {...prevState.user, last_name: e.target.value}}))}/>
+        <input placeholder='email' onChange={e => this.setState(prevState => ({user: {...prevState.user, email: e.target.value}}))}/>
+        {/*<div className='field'>*/}
+        {/*  <label htmlFor='isHappy'>Состояние</label>*/}
+        {/*  <input type='checkbox' id='isHappy' onChange={e => this.setState(prevState => ({user: {...prevState.user, isHappy: e.target.checked}}))}/>*/}
+        {/*</div>*/}
         <button type='button' onClick={this.handleSubmit}>Добавить</button>
       </form>
     )

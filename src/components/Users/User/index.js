@@ -13,14 +13,14 @@ class User extends React.Component {
   }
 
   render() {
-    // const { firstName, bio } = this.props.user
-    const { id, firstName, bio, isHappy, age } = this.state.user
+    const { id, first_name, last_name, avatar, isHappy, email } = this.state.user
     return (
       <li className='user-component'>
         <div className='content'>
           <div>
-            <h4>{firstName} - {age} лет</h4>
-            <div>{bio}</div>
+            <h4>{first_name} - {last_name}</h4>
+            <div>{email}</div>
+            <img src={avatar} alt={first_name} />
             <div>{isHappy ? ':)' : ':('}</div>
           </div>
           <div>
@@ -38,10 +38,10 @@ export default User;
 
 
 // const User = (props) => {
-//   const { firstName, bio } = props.user
+//   const { first_name, bio } = props.user
 //   return (
 //     <li>
-//       <h4>{firstName}</h4>
+//       <h4>{first_name}</h4>
 //       <div>{bio}</div>
 //     </li>
 //   )
