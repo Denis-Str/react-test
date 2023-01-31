@@ -19,9 +19,11 @@ class Form extends React.Component {
   }
 
   handleSubmit() {
+    let sendData = this.state.user;
+    if (this.props.user) sendData = {...sendData, id: this.props.user.id}
+    this.props.addUser(sendData);
     this.form.reset();
     this.setState({user: initState});
-    this.props.addUser(this.state.user);
   }
 
   render() {

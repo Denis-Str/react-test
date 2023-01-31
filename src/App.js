@@ -21,6 +21,7 @@ class App extends React.Component {
 
     this.addUser = this.addUser.bind(this);
     this.delUser = this.delUser.bind(this);
+    this.editUser = this.editUser.bind(this);
   }
   addUser(user) {
     const id = this.state.users.length + 1;
@@ -32,19 +33,29 @@ class App extends React.Component {
     this.setState({users: filteredUsers})
   };
 
+  editUser(user) {
+    let users = this.state.users;
+    let editUserIndex = this.state.users.findIndex(({id}) => id === user.id);
+    users[editUserIndex] = user
+    this.setState({users: []}, () => this.setState({users: [...users]}))
+  };
+
   render() {
     return (
       <div className='app-component'>
         <header>
-          <h1 className='title'>Список пользователей</h1>
+          <h1 className='title'>React JS</h1>
         </header>
         <main>
           <div className='top'>
-            <Users users={this.state.users} delUser={this.delUser}/>
-            <Form addUser={this.addUser}/>
+            <h2 className='title'>Список пользователей</h2>
+            <div className='wrap'>
+              <Users users={this.state.users} editUser={this.editUser} delUser={this.delUser}/>
+              <Form addUser={this.addUser}/>
+            </div>
           </div>
           <div>
-            <h4>Всплытие</h4>
+            <h2 className='title'>Всплытие</h2>
             <Calculator/>
           </div>
         </main>

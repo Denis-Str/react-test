@@ -30,7 +30,12 @@ main {
 
 .top {
   display: flex;
+  flex-direction: column;
   margin-bottom: 32px;
+}
+
+.wrap {
+  display: flex;
 }
 
 .users-component {
@@ -40,8 +45,7 @@ main {
 
 .user-component {
   display: flex;
-  align-self: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 16px;
   background-color: yellow;
   margin-bottom: 16px;
@@ -49,6 +53,11 @@ main {
 
 .user-component:not(:last-child) {
   margin-bottom: 16px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .edit {

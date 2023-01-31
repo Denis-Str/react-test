@@ -17,16 +17,18 @@ class User extends React.Component {
     const { id, firstName, bio, isHappy, age } = this.state.user
     return (
       <li className='user-component'>
-        <div>
-          <h4>{firstName} - {age} лет</h4>
-          <div>{bio}</div>
-          <div>{isHappy ? ':)' : ':('}</div>
+        <div className='content'>
+          <div>
+            <h4>{firstName} - {age} лет</h4>
+            <div>{bio}</div>
+            <div>{isHappy ? ':)' : ':('}</div>
+          </div>
+          <div>
+            <IoHammerSharp onClick={() => this.setState({showEditForm: !this.state.showEditForm})} className='edit' />
+            <IoCloseCircleSharp onClick={() => this.props.delUser(id)} />
+          </div>
         </div>
-        <div>
-          <IoHammerSharp onClick={() => this.setState({showEditForm: !this.state.showEditForm})} className='edit' />
-          <IoCloseCircleSharp onClick={() => this.props.delUser(id)} />
-        </div>
-        {this.state.showEditForm && <Form />}
+        {this.state.showEditForm && <Form user={this.state.user} addUser={this.props.editUser} />}
       </li>
     )
   }
